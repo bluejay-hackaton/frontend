@@ -1,7 +1,7 @@
 import DragNDrop from './components/DragNDrop';
 import './upload.css';
 
-export default function Upload({ onUpload }) {
+export default function Upload({ onUpload, onChangeIncome }) {
   return (
     <section>
         <h1>Welcome to BlueJay!</h1>
@@ -14,10 +14,13 @@ export default function Upload({ onUpload }) {
       </p>
       <p>
         Download your transaction history from your bank's website. Make sure
-        it's in CSV format. The file should contain categorized sum for a every month.
+        it's in CSV format. The file should contain categorized sum for a every month. 
+        <span style={{
+            fontSize: '8'
+        }}>* because of time constraints we expect that the user income is in the csv file</span>
       </p>
       <section id="upload-box">
-        <DragNDrop/>
+        <DragNDrop onFileUploaded={onUpload}/>
       </section>
 
         <br></br>

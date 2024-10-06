@@ -1,6 +1,6 @@
 import "./header.css";
 
-export default function Header() {
+export default function Header({ currentPage, setCurrentPage }) {
   return (
     <div id="header">
       <div>
@@ -10,12 +10,22 @@ export default function Header() {
       <nav>
         <ul>
           <li>
-            <button className="active">Upload</button>
+            <button onClick={() => {
+                setCurrentPage(0);
+            }} className={currentPage === 0 ? 'active': ''}>Upload</button>
           </li>
           <li>
-            <button className="disabled">Analyze</button>
+            <button onClick={() => {
+                if (currentPage === 0) return;
+                setCurrentPage(1);
+            }} className={(currentPage === 0 && 'disabled') || (currentPage === 1 ? 'active' : '')}>Analyze</button>
           </li>
-          <li><button className="disabled">Plan</button></li>
+          <li>
+            <button onClick={() => {
+                if (currentPage === 0) return;
+                setCurrentPage(2);
+            }} className={(currentPage === 0 && 'disabled' || '')}>Plan</button>
+            </li>
         </ul>
       </nav>
     </div>

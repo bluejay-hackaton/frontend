@@ -39,7 +39,10 @@ const DragDropCSV = ({ onFileUploaded }) => {
   const handleFiles = (files) => {
     const file = files[0];
     if (file.type === "text/csv") {
+        const file = files.item(0);
+        file.text().then((r) => onFileUploaded(r));
       setFile(file);
+      onFileUploaded(file);
     } else {
       alert("Please upload a CSV file.");
     }
@@ -60,7 +63,9 @@ const DragDropCSV = ({ onFileUploaded }) => {
         onChange={handleChange}
         style={{display: "none"}}
       />
-      <p>Drag and drop your CSV file here</p>
+      <p style={{
+        marginBottom: 0
+      }}>Drag and drop your CSV file here</p>
       <button className="upload-button" onClick={onButtonClick}>
         or click here to upload
       </button>

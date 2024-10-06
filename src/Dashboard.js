@@ -91,24 +91,21 @@ const Downards = () => {
   );
 };
 
-const Dashboard = () => {
+/**
+ * @param {{data: {
+ *   trend: string,
+ *   description: string,
+ *   advice: string[],
+ *   positive_observations: Object.<string, string>,
+ *   negative_observations: Object.<string, string>,
+ *   last_month_budget: Object.<string, {current: number, suggested: number, average: number}>
+ * }}} arg
+ */
+const Dashboard = ({ data }) => {
   const monthlySpending = 2000;
   const averageSpending = 2200;
   const spendingDifference =
     ((monthlySpending - averageSpending) / averageSpending) * 100;
-  const categoryData = [
-    { name: "Food", current: 500, average: 450 },
-    { name: "Transport", current: 300, average: 250 },
-    { name: "Entertainment", current: 200, average: 180 },
-    { name: "Car Maintenance", current: 400, average: 150 },
-  ];
-  const insights = [
-    "Your car maintenance costs are higher than usual.",
-    "You've reduced your food expenses this month.",
-    "Your entertainment spending is consistent with previous months.",
-  ];
-  const loading = true;
-
   return (
     <section id="dashboard">
       <h2>Your summary</h2>
@@ -124,7 +121,7 @@ const Dashboard = () => {
       </section>
 
       <ResponsiveContainer width="100%" height={300}>
-        <BarChart width={500} height={300} data={categoryData}>
+        <BarChart width={500} height={300} data={data.last_month_budget}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" />
           <YAxis />
@@ -159,9 +156,13 @@ const Dashboard = () => {
             </div>
           </h4>
           <ul>
-            {insights.map((insight) => (
-              <li>{insight}</li>
-            ))}
+            {Object.entries(data.positive_observations).map(
+              ([title, insight]) => (
+                <li>
+                  {title}: {insight}
+                </li>
+              )
+            )}
           </ul>
         </section>
 
@@ -185,9 +186,13 @@ const Dashboard = () => {
             </div>
           </h4>
           <ul>
-            {insights.map((insight) => (
-              <li>{insight}</li>
-            ))}
+            {Object.entries(data.negative_observations).map(
+              ([title, insight]) => (
+                <li>
+                  {title}: {insight}
+                </li>
+              )
+            )}
           </ul>
         </section>
       </section>

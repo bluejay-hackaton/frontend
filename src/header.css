@@ -6,6 +6,8 @@
   padding-left: 16px;
   padding-right: 16px;
 
+
+
   > div {
     display: flex;
     align-items: center;
@@ -34,6 +36,8 @@
           text-decoration-color: var(--text-color);
           color: inherit;
           border-radius: var(--buttons-radius);
+
+          background-color: transparent;
 
           &.active {
             background-color: var(--primary-color);
