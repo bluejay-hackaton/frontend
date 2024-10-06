@@ -24,7 +24,7 @@ export default function Header({ currentPage, setCurrentPage }) {
             <button onClick={() => {
                 if (currentPage === 0) return;
                 setCurrentPage(2);
-            }} className={(currentPage === 0 && 'disabled' || '')}>Plan</button>
+            }} className={currentPage === 2 ? 'active' : ''}>Plan</button>
             </li>
         </ul>
       </nav>
