@@ -1,0 +1,42 @@
+
+#summary-expenses {
+    padding: 16px;
+    display: flex;
+
+    > span {
+        margin-top: 8px;
+    }
+
+    .warn, .green {
+        display: flex;
+        font-weight: 200;
+        padding-left: 4px;
+    }
+    
+    .warn {
+        color: var(--warning-color);
+    }
+
+    .green {
+        color: var(--accent-color);
+    }
+
+    .primary {
+        color: var(--accent-color);
+    }
+
+    #upwards {
+        width: 16px;
+        height: 16px;
+    
+    }
+
+}
+
+
+#call-to-action {
+    button {
+        margin-top: 8px;
+        cursor:pointer;
+    }
+}

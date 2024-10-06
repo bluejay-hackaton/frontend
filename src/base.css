@@ -1,0 +1,52 @@
+html, body {
+    background-color: #fbfbfe;
+    font-family: 'Nunito', sans-serif;
+    color: #050316;
+
+    --primary-color: #88A5BE;
+    --secondary-color: #9594C8;
+    --accent-color: #89C4AC;
+
+    --background-color: #fbfbfe;
+    --text-color: #050316;
+
+    --warning-color: #E3867A;
+
+    --buttons-radius: 10%;
+
+    padding: 8px 32px;
+
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 1em;
+}
+
+h1 {
+    margin-top: 2em;
+}
+
+/* Paragraphs */
+p {
+    margin-top: 0;
+    margin-bottom: 1.2em;
+    line-height: 1.6;
+}
+
+.list-without-styles {
+    padding-block-start: 0;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+}
+
+button {
+    border-radius: 16px;
+    background-color: var(--primary-color);
+    padding: 15px;
+    border: 0;
+}

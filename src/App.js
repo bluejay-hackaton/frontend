@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import Header from "./Header";
+import Upload from "./Upload";
+import Dashboard from "./Dashboard";
+import "./reset.css";
+import "./base.css";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  const [data, setData] = useState();
+  const [currentPage, setCurrentPage] = useState(0);
+  return <div>
+    <Header />
+    <main>
+      <Upload/>
+      {/* <Dashboard /> */}
+    </main>
+  </div>;
 }
 
 export default App;
